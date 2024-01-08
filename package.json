@@ -1,0 +1,15 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "examples",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Matthew Lilley <hello@matthewlilley.com>",
+  "license": "MIT",
+  "dependencies": {
+    "viem": "^2.0.3"
+  }
+}
