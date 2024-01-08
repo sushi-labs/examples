@@ -10,6 +10,9 @@
   "author": "Matthew Lilley <hello@matthewlilley.com>",
   "license": "MIT",
   "dependencies": {
-    "viem": "^2.0.3"
+    "viem": "^2"
+  },
+  "devDependencies": {
+    "@types/node": "^20"
   }
 }

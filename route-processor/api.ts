@@ -1,7 +1,9 @@
-import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
+import { Address, createPublicClient, http } from 'viem'
 
-const client = createPublicClient({
+import { mainnet } from 'viem/chains'
+import { abi } from './abi'
+
+const publicClient = createPublicClient({
   chain: mainnet,
   transport: http(),
 })
@@ -23,7 +25,7 @@ const amount = 1000000000000000
 const maxPriceImpact = 0.005
 
 // Gas Price
-const gasPrice = await client.getGasPrice()
+const gasPrice = await publicClient.getGasPrice()
 
 // To
 const to = '0x8f54C8c2df62c94772ac14CcFc85603742976312'
@@ -45,4 +47,22 @@ const json = await res.json()
 
 console.log(json)
 
+// Simulate a call to the blockchain for the swap
+const { result } = await publicClient.simulateContract({
+  address: json.routeProcessorAddr as Address,
+  abi,
+  functionName: 'processRoute',
+  // tokenIn, amountIn, tokenOut, amountOutMin, to, route
+  args: [json.routeProcessorArgs.tokenIn, json.routeProcessorArgs.amountIn, json.routeProcessorArgs.tokenOut, json.routeProcessorArgs.amountOutMin, json.routeProcessorArgs.to, json.routeProcessorArgs.routeCode] as [`0x${string}`, bigint, `0x${string}`, bigint, `0x${string}`, `0x${string}`],
+  account: to,
+  value: json.routeProcessorArgs.value
+})
+console.log(result)
+
 // Make a call to the blockchain for the swap
+// const PRIVATE_KEY = process.env.PRIVATE_KEY as Hex
+// const walletClient = createWalletClient({
+//   chain: mainnet,
+//   transport: http(),
+// })
+// const acount = privateKeyToAccount(PRIVATE_KEY)

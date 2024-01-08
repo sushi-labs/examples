@@ -9,6 +9,11 @@ dependencies:
     specifier: ^2.0.3
     version: 2.0.3
 
+devDependencies:
+  '@types/node':
+    specifier: ^20
+    version: 20.10.7
+
 packages:
 
   /@adraffy/ens-normalize@1.10.0:
@@ -45,6 +50,12 @@ packages:
       '@scure/base': 1.1.5
     dev: false
 
+  /@types/node@20.10.7:
+    resolution: {integrity: sha512-fRbIKb8C/Y2lXxB5eVMj4IU7xpdox0Lh8bUPEdtLysaylsml1hOOx1+STloRs/B9nf7C6kPRmmg/V7aQW7usNg==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
+
   /abitype@0.10.0:
     resolution: {integrity: sha512-QvMHEUzgI9nPj9TWtUGnS2scas80/qaL5PBxGdwWhhvzqXfOph+IEiiiWrzuisu3U3JgDQVruW9oLbJoQ3oZ3A==}
     peerDependencies:
@@ -64,6 +75,10 @@ packages:
     dependencies:
       ws: 8.13.0
     dev: false
+
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
 
   /viem@2.0.3:
     resolution: {integrity: sha512-9r+CMEA0zf8QCvCobTUX4vhP9x0t7wRjHbadfHDHw8ULjnzwoQc1Yc1pK99GtqK4hv5hKacDe78dibg80p/a+A==}
